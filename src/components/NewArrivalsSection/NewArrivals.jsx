@@ -64,7 +64,7 @@ const NewArrivals = () => {
         {
           products?.map((product) => (
             <SwiperSlide key={product._id}>
-              <Link href={`/product/${product._id}`}>
+              <Link href={`/newArrival/${product._id}`}>
                 <div className="border rounded-lg p-4 text-center hover:bg-slate-100 hover:scale-95 duration-200">
                   <Image
                     src={product.image}

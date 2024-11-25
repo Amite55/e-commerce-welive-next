@@ -1,17 +1,16 @@
 "use client"
-
 import NewArrivals from '@/components/NewArrivalsSection/NewArrivals';
 import ReviewSection from '@/components/ReviewSection/ReviewSection';
 import axios from 'axios';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-const ProductDetailsPage = ({params}) => {
+const NewArrivalsPage = ({params}) => {
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(false);
 
     const loadData = async () => {
-        const {data} = await axios.get(`http://localhost:3000/product/api/${params.id}`);
+        const {data} = await axios.get(`http://localhost:3000/newArrival/api/${params.id}`);
         setProduct(data?.product);
         setLoading(false);
     }
@@ -19,9 +18,8 @@ const ProductDetailsPage = ({params}) => {
     useEffect(()=> {
         loadData()
     }, [])
-
     return (
-       <>
+        <>
         <div className='bg-white text-black grid grid-cols-1 md:grid-cols-2 py-7'>
             <div>
                 <Image src={product?.image} height={500} width={400} alt='image' />
@@ -96,4 +94,4 @@ const ProductDetailsPage = ({params}) => {
     );
 };
 
-export default ProductDetailsPage;
+export default NewArrivalsPage;
